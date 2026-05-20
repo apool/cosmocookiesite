@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CosmoCook — Cookies Artesanais</title>
+<meta name="description" content="CosmoCook: cookies artesanais recheados, feitos com amor e alma cósmica. Peça pelo Instagram ou WhatsApp."/>
+<meta property="og:title" content="CosmoCook — Cookies Artesanais"/>
+<meta property="og:image" content="./img/logo.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:        #0d1b35;
+  --navy-mid:    #142244;
+  --navy-light:  #1d2f55;
+  --navy-card:   #1a2b4a;
+  --navy-border: rgba(255,255,255,0.10);
+  --cream:       #f5f0e8;
+  --cream-muted: rgba(245,240,232,0.70);
+  --star:        #f7d47a;
+  --star-dim:    rgba(247,212,122,0.65);
+  --white:       #ffffff;
+  --text-main:   #f0eadc;
+  --text-muted:  #a8b8d0;
+  --text-faint:  #607090;
+  --accent:      #e8a830;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --text-3xl:  clamp(2.5rem, 1rem + 4vw, 5rem);
+  --text-hero: clamp(3.5rem, 1rem + 7vw, 8rem);
+
+  --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;
+  --sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;--sp16:4rem;
+  --sp20:5rem;--sp24:6rem;
+
+  --r-sm:.4rem;--r-md:.7rem;--r-lg:1.1rem;--r-xl:1.6rem;--r-full:999px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.35);
+  --shadow-lg: 0 20px 64px rgba(0,0,0,0.45);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:80px;}
+body{
+  min-height:100vh;
+  font-family:var(--font-body);
+  font-size:var(--text-base);
+  color:var(--text-main);
+  background-color:var(--navy);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Stars bg */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.85) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.5) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(247,212,122,.9) 0 1px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.35) 0 1px,transparent 1.5px);
+  background-size:300px 300px,500px 500px,700px 700px,420px 420px;
+  background-position:0 0,150px 80px,300px 200px,60px 340px;
+  opacity:.55;
+}
+
+img{max-width:100%;display:block;height:auto;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;border:none;background:none;color:inherit;cursor:pointer;}
+
+.skip{position:absolute;left:-999px;top:var(--sp4);background:var(--accent);color:var(--navy);padding:var(--sp3) var(--sp4);z-index:200;font-weight:700;}
+.skip:focus{left:var(--sp4);}
+.wrap{position:relative;z-index:1;}
+.container{width:min(1160px,calc(100% - 2.4rem));margin:0 auto;}
+
+/* ── TOPBAR ── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in srgb,var(--navy) 88%,transparent);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--navy-border);
+}
+.topbar-inner{
+  min-height:74px;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--sp4);
+}
+.brand{display:flex;align-items:center;gap:var(--sp3);}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(247,212,122,.35);}
+.brand-name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:.04em;}
+nav{display:flex;gap:var(--sp5);align-items:center;}
+nav a{font-size:var(--text-sm);color:var(--text-muted);transition:color .2s;}
+nav a:hover{color:var(--text-main);}
+.nav-cta{
+  min-height:40px;padding:.55rem 1.1rem;border-radius:var(--r-full);
+  background:var(--accent);color:var(--navy);font-size:var(--text-sm);font-weight:700;
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:#f5bc3a;transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{padding:clamp(var(--sp12),8vw,var(--sp24)) 0 var(--sp16);}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:var(--sp12);align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  padding:.4rem .85rem;border-radius:var(--r-full);
+  border:1px solid rgba(247,212,122,.3);
+  background:rgba(247,212,122,.08);
+  color:var(--star);font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:var(--sp5);
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:var(--text-hero);
+  line-height:.92;letter-spacing:-.03em;
+  margin-bottom:var(--sp5);
+}
+.hero h1 em{font-style:italic;color:var(--star);}
+.hero-desc{color:var(--text-muted);max-width:54ch;margin-bottom:var(--sp8);}
+.hero-btns{display:flex;flex-wrap:wrap;gap:var(--sp3);margin-bottom:var(--sp10);}
+.btn-primary{
+  min-height:50px;padding:.9rem 1.4rem;border-radius:var(--r-full);
+  background:var(--accent);color:var(--navy);font-size:var(--text-sm);font-weight:700;
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:#f5bc3a;transform:translateY(-1px);}
+.btn-ghost{
+  min-height:50px;padding:.9rem 1.4rem;border-radius:var(--r-full);
+  border:1px solid var(--navy-border);color:var(--text-main);font-size:var(--text-sm);font-weight:600;
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  background:rgba(255,255,255,.04);
+  transition:background .2s,transform .15s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp6);
+  padding-top:var(--sp6);border-top:1px solid var(--navy-border);
+}
+.hero-stat strong{display:block;font-family:var(--font-display);font-size:var(--text-2xl);color:var(--star);line-height:1;}
+.hero-stat span{font-size:var(--text-xs);color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;}
+
+/* Hero Visual */
+.hero-visual{position:relative;min-height:580px;}
+.hv-main{
+  position:absolute;inset:0 10% 8% 5%;
+  border-radius:var(--r-xl);overflow:hidden;
+  border:1px solid var(--navy-border);
+  box-shadow:var(--shadow-lg);
+  transform:rotate(-3deg);
+}
+.hv-main img,.hv-main video{width:100%;height:100%;object-fit:cover;}
+.hv-float{
+  position:absolute;right:-4%;top:6%;
+  width:210px;
+  border-radius:var(--r-xl);
+  border:1px solid var(--navy-border);
+  background:var(--navy-card);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transform:rotate(5deg);
+}
+.hv-float img{width:100%;aspect-ratio:1;object-fit:cover;}
+.hv-badge{
+  position:absolute;bottom:14%;left:0%;
+  background:var(--navy-card);
+  border:1px solid rgba(247,212,122,.25);
+  border-radius:var(--r-lg);
+  padding:var(--sp3) var(--sp4);
+  box-shadow:var(--shadow);
+  transform:rotate(2deg);
+}
+.hv-badge strong{display:block;color:var(--star);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;margin-bottom:var(--sp1);}
+.hv-badge p{font-size:var(--text-sm);color:var(--text-muted);max-width:22ch;}
+
+/* ── SECTION COMMON ── */
+section{padding:clamp(var(--sp10),8vw,var(--sp20)) 0;}
+.sec-head{margin-bottom:var(--sp10);}
+.sec-label{
+  display:inline-block;margin-bottom:var(--sp3);
+  color:var(--star);font-size:var(--text-xs);letter-spacing:.18em;text-transform:uppercase;
+}
+.sec-head h2{
+  font-family:var(--font-display);font-size:var(--text-3xl);letter-spacing:-.03em;line-height:.94;
+  margin-bottom:var(--sp4);
+}
+.sec-head p{color:var(--text-muted);max-width:62ch;}
+
+/* ── CARDÁPIO ── */
+.menu-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:var(--sp10);}
+.menu-sidebar{
+  position:sticky;top:90px;align-self:start;
+  padding:var(--sp8);
+  border:1px solid var(--navy-border);
+  border-radius:var(--r-xl);
+  background:linear-gradient(160deg,rgba(247,212,122,.06),transparent 40%),var(--navy-card);
+  box-shadow:var(--shadow);
+}
+.menu-sidebar .logo-wrap{
+  width:64px;height:64px;border-radius:50%;overflow:hidden;
+  border:2px solid rgba(247,212,122,.3);margin-bottom:var(--sp5);
+}
+.menu-sidebar .logo-wrap img{width:100%;height:100%;object-fit:cover;}
+.menu-sidebar h3{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05;margin-bottom:var(--sp4);}
+.menu-sidebar p{color:var(--text-muted);font-size:var(--text-sm);margin-bottom:var(--sp6);}
+.menu-sidebar .whatsapp-btn{
+  display:flex;align-items:center;gap:var(--sp2);
+  width:100%;min-height:46px;padding:.75rem 1rem;
+  border-radius:var(--r-full);
+  background:#25D366;color:white;font-weight:700;font-size:var(--text-sm);
+  justify-content:center;margin-bottom:var(--sp4);
+  transition:background .2s,transform .15s;
+}
+.menu-sidebar .whatsapp-btn:hover{background:#1ebe5a;transform:translateY(-1px);}
+.menu-sidebar .insta-btn{
+  display:flex;align-items:center;gap:var(--sp2);
+  width:100%;min-height:46px;padding:.75rem 1rem;
+  border-radius:var(--r-full);
+  border:1px solid var(--navy-border);
+  color:var(--text-main);font-weight:600;font-size:var(--text-sm);
+  justify-content:center;
+  background:rgba(255,255,255,.04);
+  transition:background .2s;
+}
+.menu-sidebar .insta-btn:hover{background:rgba(255,255,255,.08);}
+.menu-tags{display:flex;flex-wrap:wrap;gap:var(--sp2);margin-top:var(--sp6);}
+.menu-tags span{
+  padding:.4rem .75rem;border-radius:var(--r-full);
+  border:1px solid var(--navy-border);
+  font-size:var(--text-xs);color:var(--text-muted);
+}
+
+/* Product cards */
+.menu-list{display:grid;gap:var(--sp5);}
+.product-card{
+  border:1px solid rgba(247,212,122,.15);
+  border-radius:var(--r-xl);
+  background:var(--navy-card);
+  box-shadow:var(--shadow),inset 0 1px 0 rgba(247,212,122,.08);
+  overflow:hidden;
+  display:grid;grid-template-columns:240px 1fr;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.product-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(247,212,122,.12);
+  border-color:rgba(247,212,122,.32);
+}
+.product-card .card-img{
+  aspect-ratio:1;
+  overflow:hidden;
+  position:relative;
+  border-right:1px solid rgba(247,212,122,.18);
+  margin:var(--sp3) 0 var(--sp3) var(--sp3);
+  border-radius:var(--r-lg);
+}
+.product-card .card-img::before{
+  content:"";
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(135deg,rgba(247,212,122,.10) 0%,transparent 45%),
+             linear-gradient(to bottom,transparent 60%,rgba(13,27,53,.55) 100%);
+  transition:opacity .3s;
+}
+.product-card:hover .card-img::before{opacity:.5;}
+.product-card .card-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .35s ease;
+}
+.product-card:hover .card-img img{transform:scale(1.06);}
+.card-body{padding:var(--sp6);}
+.card-top{
+  display:flex;justify-content:space-between;align-items:start;
+  gap:var(--sp4);margin-bottom:var(--sp3);
+}
+.card-top h3{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1;}
+.card-price{
+  color:var(--star);font-size:var(--text-sm);font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+}
+.card-desc{color:var(--text-muted);font-size:var(--text-sm);margin-bottom:var(--sp4);}
+.card-badges{display:flex;flex-wrap:wrap;gap:var(--sp2);}
+.badge{
+  font-size:var(--text-xs);padding:.4rem .7rem;border-radius:var(--r-full);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.65);
+}
+.badge.hot{background:rgba(247,212,122,.12);border-color:rgba(247,212,122,.25);color:var(--star);}
+
+/* ── GALERIA ── */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--sp3);
+}
+.gallery-item{
+  border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--navy-border);
+  aspect-ratio:1;
+  transition:transform .2s;
+}
+.gallery-item:hover{transform:scale(1.02);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+.gallery-item.tall{grid-row:span 2;aspect-ratio:auto;}
+.gallery-item.tall img{height:100%;}
+
+/* ── SOBRE ── */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp8);align-items:center;}
+.sobre-img{
+  border-radius:var(--r-xl);overflow:hidden;
+  border:1px solid var(--navy-border);box-shadow:var(--shadow);
+}
+.sobre-img img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+.sobre-copy h2{font-family:var(--font-display);font-size:var(--text-3xl);letter-spacing:-.03em;margin-bottom:var(--sp5);}
+.sobre-copy p{color:var(--text-muted);margin-bottom:var(--sp4);}
+.sobre-pills{display:flex;flex-wrap:wrap;gap:var(--sp2);margin-top:var(--sp6);}
+.pill{
+  padding:.5rem 1rem;border-radius:var(--r-full);
+  border:1px solid rgba(247,212,122,.2);
+  background:rgba(247,212,122,.07);
+  color:var(--star);font-size:var(--text-sm);
+}
+
+/* ── FOOTER ── */
+footer{
+  padding:var(--sp10) 0 var(--sp12);
+  border-top:1px solid var(--navy-border);
+  color:var(--text-faint);
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:var(--sp4);
+}
+.footer-brand{display:flex;align-items:center;gap:var(--sp3);}
+.footer-brand img{width:36px;height:36px;border-radius:50%;border:1px solid rgba(247,212,122,.25);}
+.footer-brand span{font-family:var(--font-display);font-size:var(--text-lg);color:var(--text-main);}
+.footer-links{display:flex;gap:var(--sp5);}
+.footer-links a{font-size:var(--text-sm);color:var(--text-faint);transition:color .2s;}
+.footer-links a:hover{color:var(--text-muted);}
+
+/* ── CARRINHO ── */
+.add-to-cart{
+  margin-top:var(--sp4);
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  padding:.55rem 1rem;border-radius:var(--r-full);
+  background:rgba(247,212,122,.12);border:1px solid rgba(247,212,122,.3);
+  color:var(--star);font-size:var(--text-sm);font-weight:600;
+  transition:background .2s,transform .15s;
+}
+.add-to-cart:hover{background:rgba(247,212,122,.22);transform:translateY(-1px);}
+
+.cart-fab{
+  position:fixed;bottom:var(--sp6);right:var(--sp6);z-index:200;
+  width:60px;height:60px;border-radius:50%;
+  background:var(--accent);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 28px rgba(0,0,0,.45);
+  transition:transform .2s,background .2s;
+}
+.cart-fab:hover{transform:scale(1.08);background:#f5bc3a;}
+.cart-count{
+  position:absolute;top:-5px;right:-5px;
+  min-width:22px;height:22px;border-radius:var(--r-full);
+  background:#e5393d;color:white;
+  font-size:11px;font-weight:700;
+  display:none;align-items:center;justify-content:center;padding:0 5px;
+}
+.cart-count.visible{display:flex;}
+
+.cart-overlay{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.cart-overlay.open{opacity:1;pointer-events:all;}
+
+.cart-panel{
+  position:fixed;top:0;right:0;bottom:0;z-index:301;
+  width:min(430px,100vw);
+  background:var(--navy-mid);
+  border-left:1px solid var(--navy-border);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow:var(--shadow-lg);
+}
+.cart-panel.open{transform:translateX(0);}
+
+.cart-panel-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:var(--sp5) var(--sp6);
+  border-bottom:1px solid var(--navy-border);flex-shrink:0;
+}
+.cart-panel-head h2{font-family:var(--font-display);font-size:var(--text-xl);}
+.cart-close{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid var(--navy-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);transition:background .2s;
+}
+.cart-close:hover{background:rgba(255,255,255,.13);color:var(--text-main);}
+
+.cart-items{flex:1;overflow-y:auto;padding:var(--sp5) var(--sp6);}
+.cart-empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;color:var(--text-muted);gap:var(--sp4);text-align:center;
+}
+.cart-empty svg{opacity:.25;}
+
+.cart-item{
+  display:flex;align-items:center;gap:var(--sp4);
+  padding:var(--sp4) 0;border-bottom:1px solid var(--navy-border);
+}
+.cart-item:last-child{border-bottom:none;}
+.cart-item-info{flex:1;}
+.cart-item-name{font-weight:600;font-size:var(--text-sm);margin-bottom:var(--sp1);}
+.cart-item-price{color:var(--star);font-size:var(--text-xs);font-weight:700;letter-spacing:.05em;}
+
+.qty-ctrl{display:flex;align-items:center;gap:var(--sp2);}
+.qty-btn{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.07);border:1px solid var(--navy-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-main);font-size:1rem;line-height:1;transition:background .15s;
+}
+.qty-btn:hover{background:rgba(255,255,255,.15);}
+.qty-val{font-size:var(--text-sm);font-weight:700;min-width:1.6ch;text-align:center;}
+.cart-item-remove{color:var(--text-faint);transition:color .15s;padding:var(--sp1);}
+.cart-item-remove:hover{color:#e5393d;}
+
+.cart-footer{
+  padding:var(--sp5) var(--sp6);
+  border-top:1px solid var(--navy-border);flex-shrink:0;
+}
+.cart-total-row{
+  display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp5);
+}
+.cart-total-label{color:var(--text-muted);font-size:var(--text-sm);}
+.cart-total-val{font-family:var(--font-display);font-size:var(--text-2xl);color:var(--star);}
+.cart-send-btn{
+  width:100%;min-height:50px;border-radius:var(--r-full);
+  background:#25D366;color:white;font-weight:700;font-size:var(--text-sm);
+  display:flex;align-items:center;justify-content:center;gap:var(--sp2);
+  transition:background .2s,transform .15s;
+}
+.cart-send-btn:hover{background:#1ebe5a;transform:translateY(-1px);}
+.cart-send-btn:disabled{opacity:.35;pointer-events:none;}
+
+/* ── MODAL CADASTRO ── */
+.checkout-modal-overlay{
+  position:fixed;inset:0;z-index:400;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:var(--sp4);
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.checkout-modal-overlay.open{opacity:1;pointer-events:all;}
+.checkout-modal{
+  width:min(480px,100%);
+  background:var(--navy-mid);
+  border:1px solid var(--navy-border);
+  border-radius:var(--r-xl);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  transform:translateY(24px) scale(.97);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.checkout-modal-overlay.open .checkout-modal{transform:translateY(0) scale(1);}
+.checkout-modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:var(--sp5) var(--sp6);
+  border-bottom:1px solid var(--navy-border);
+}
+.checkout-modal-head h2{font-family:var(--font-display);font-size:var(--text-xl);}
+.checkout-modal-body{padding:var(--sp6);}
+.form-group{margin-bottom:var(--sp5);}
+.form-group label{
+  display:block;font-size:var(--text-sm);font-weight:600;
+  color:var(--text-muted);margin-bottom:var(--sp2);letter-spacing:.04em;
+}
+.form-group input,.form-group textarea{
+  width:100%;padding:.75rem var(--sp4);
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--navy-border);
+  border-radius:var(--r-md);
+  color:var(--text-main);font:inherit;font-size:var(--text-sm);
+  transition:border-color .2s,background .2s;
+  outline:none;
+}
+.form-group input:focus,.form-group textarea:focus{
+  border-color:rgba(247,212,122,.45);
+  background:rgba(255,255,255,.08);
+}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-faint);}
+.form-group textarea{resize:vertical;min-height:80px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp4);}
+.checkout-modal-foot{
+  padding:var(--sp4) var(--sp6) var(--sp6);
+  display:flex;flex-direction:column;gap:var(--sp3);
+}
+.checkout-confirm-btn{
+  width:100%;min-height:50px;border-radius:var(--r-full);
+  background:#25D366;color:white;font-weight:700;font-size:var(--text-sm);
+  display:flex;align-items:center;justify-content:center;gap:var(--sp2);
+  transition:background .2s,transform .15s;
+}
+.checkout-confirm-btn:hover{background:#1ebe5a;transform:translateY(-1px);}
+.checkout-cancel-btn{
+  width:100%;min-height:44px;border-radius:var(--r-full);
+  border:1px solid var(--navy-border);
+  color:var(--text-muted);font-size:var(--text-sm);font-weight:600;
+  background:transparent;transition:background .2s;
+}
+.checkout-cancel-btn:hover{background:rgba(255,255,255,.06);color:var(--text-main);}
+.field-error{border-color:rgba(229,57,61,.6) !important;}
+.error-msg{font-size:var(--text-xs);color:#e5393d;margin-top:var(--sp1);}
+
+/* ── COMBOS ── */
+.combos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp6);
+}
+.combo-card{
+  position:relative;
+  border:1px solid rgba(247,212,122,.3);
+  border-radius:var(--r-xl);
+  background:linear-gradient(160deg,rgba(247,212,122,.07) 0%,transparent 50%),var(--navy-card);
+  box-shadow:var(--shadow),inset 0 1px 0 rgba(247,212,122,.12);
+  padding:var(--sp6);
+  display:flex;flex-direction:column;gap:var(--sp4);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.combo-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(247,212,122,.2);
+  border-color:rgba(247,212,122,.55);
+}
+.combo-card.destaque{
+  border-color:rgba(247,212,122,.6);
+  background:linear-gradient(160deg,rgba(247,212,122,.13) 0%,transparent 55%),var(--navy-card);
+}
+.combo-save{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:var(--navy);
+  font-size:var(--text-xs);font-weight:700;letter-spacing:.08em;
+  padding:.3rem .9rem;border-radius:var(--r-full);white-space:nowrap;
+}
+.combo-name{
+  font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1;
+  color:var(--text-main);
+}
+.combo-desc{font-size:var(--text-sm);color:var(--text-muted);}
+.combo-items{
+  display:flex;flex-direction:column;gap:var(--sp2);
+  padding:var(--sp4);
+  background:rgba(255,255,255,.04);
+  border-radius:var(--r-md);
+  border:1px solid var(--navy-border);
+}
+.combo-items span{
+  font-size:var(--text-xs);color:var(--text-muted);
+  display:flex;align-items:center;gap:var(--sp2);
+}
+.combo-items span::before{content:"🍪";font-size:.8rem;}
+.combo-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:auto;gap:var(--sp3);flex-wrap:wrap;
+}
+.combo-price{
+  font-family:var(--font-display);font-size:var(--text-2xl);
+  color:var(--star);line-height:1;
+}
+.combo-price-old{
+  font-size:var(--text-xs);color:var(--text-faint);
+  text-decoration:line-through;display:block;
+}
+.combo-btn{
+  display:inline-flex;align-items:center;gap:var(--sp2);
+  padding:.6rem 1.1rem;border-radius:var(--r-full);
+  background:rgba(247,212,122,.14);border:1px solid rgba(247,212,122,.35);
+  color:var(--star);font-size:var(--text-sm);font-weight:600;
+  transition:background .2s,transform .15s;white-space:nowrap;
+}
+.combo-btn:hover{background:rgba(247,212,122,.25);transform:translateY(-1px);}
+
+/* ── MENU MOBILE ── */
+.hamburger{
+  display:none;
+  flex-direction:column;justify-content:center;align-items:center;
+  gap:5px;width:40px;height:40px;border-radius:var(--r-md);
+  background:rgba(255,255,255,.06);border:1px solid var(--navy-border);
+  cursor:pointer;z-index:102;flex-shrink:0;
+}
+.hamburger span{
+  display:block;width:20px;height:2px;background:var(--text-main);
+  border-radius:2px;transition:transform .3s,opacity .3s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-nav{
+  position:fixed;inset:0;z-index:101;
+  background:var(--navy-mid);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:var(--sp6);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+  padding:var(--sp16) var(--sp6) var(--sp8);
+}
+.mobile-nav.open{opacity:1;pointer-events:all;}
+.mobile-nav a{
+  font-family:var(--font-display);font-size:var(--text-2xl);
+  color:var(--text-main);letter-spacing:-.02em;
+  transition:color .2s;
+}
+.mobile-nav a:hover{color:var(--star);}
+.mobile-nav .nav-cta{
+  margin-top:var(--sp4);font-family:var(--font-body);font-size:var(--text-base);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .menu-layout{grid-template-columns:1fr;}
+  .menu-sidebar{position:static;}
+  .product-card{grid-template-columns:180px 1fr;}
+}
+@media(max-width:860px){
+  .hero-grid,.sobre-grid{grid-template-columns:1fr;}
+  .hero-visual{min-height:360px;order:-1;}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  .gallery-item.tall{grid-row:span 1;aspect-ratio:1;}
+  nav{display:none;}
+  .hamburger{display:flex;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+}
+@media(max-width:860px){
+  .combos-grid{grid-template-columns:1fr;}
+}
+@media(max-width:580px){
+  .product-card{grid-template-columns:1fr;}
+  .product-card .card-img{aspect-ratio:16/9;margin:var(--sp3) var(--sp3) 0 var(--sp3);}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .hero-btns{flex-direction:column;}
+  .hero-btns a{justify-content:center;}
+  .hero-stats{grid-template-columns:1fr;}
+  .hero-visual{min-height:280px;}
+  .card-body{padding:var(--sp4);}
+  .cart-panel{width:100vw;}
+  .checkout-modal{border-radius:var(--r-lg) var(--r-lg) 0 0;position:fixed;bottom:0;top:auto;width:100%;}
+  .checkout-modal-overlay{align-items:flex-end;padding:0;}
+  .form-row{grid-template-columns:1fr;}
+  .sec-head h2{font-size:clamp(2rem,8vw,3.5rem);}
+  .menu-sidebar{padding:var(--sp5);}
+  .sobre-grid{grid-template-columns:1fr;}
+  .topbar-inner{gap:var(--sp2);}
+  .cart-fab{bottom:var(--sp4);right:var(--sp4);width:52px;height:52px;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<div class="wrap">
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="#" class="brand" aria-label="CosmoCook início">
+      <img src="./img/logo.png" alt="Logo CosmoCook — capivara chef astronauta" width="44" height="44" loading="eager"/>
+      <span class="brand-name">CosmoCook</span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#combos">Combos</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a class="nav-cta" href="https://wa.me/5546999148012" target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir agora
+      </a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+  <a href="#combos" onclick="toggleMenu()">Combos</a>
+  <a href="#cardapio" onclick="toggleMenu()">Cardápio</a>
+  <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+  <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+  <a class="nav-cta" href="https://wa.me/5546999148012" target="_blank" rel="noopener noreferrer" onclick="toggleMenu()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Pedir agora
+  </a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        cookies artesanais
+      </div>
+      <h1>Uma explosão<br/><em>de sabor</em><br/>a cada mordida</h1>
+      <p class="hero-desc">Cookies recheados, feitos à mão com ingredientes selecionados. Cada sabor é uma viagem — do clássico ao surpreendente, do tradicional ao fora de órbita.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#cardapio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Ver cardápio
+        </a>
+        <a class="btn-ghost" href="https://www.instagram.com/cosmocook_/" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @cosmocook_
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>100%</strong><span>artesanal</span></div>
+        <div class="hero-stat"><strong>+10</strong><span>sabores</span></div>
+        <div class="hero-stat"><strong>🫶</strong><span>feito com amor</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-main">
+        <video autoplay muted loop playsinline>
+          <source src="./video.mp4" type="video/mp4"/>
+        </video>
+      </div>
+      <div class="hv-float"><img src="./img/cookie-classico.jpg" alt="Mini cookies artesanais CosmoCook" width="400" height="400" loading="eager"/></div>
+      <div class="hv-badge">
+        <strong>🌙 feito na hora</strong>
+        <p>Cookies fresquinhos para cada encomenda</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMBOS -->
+<section id="combos">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label">combos especiais</div>
+      <h2>Monte o seu combo</h2>
+      <p>Mais cookies, mais economia. Escolha o combo ideal para você, para presentear ou para compartilhar com a galera.</p>
+    </div>
+    <div class="combos-grid">
+
+      <div class="combo-card">
+        <div class="combo-save">Economize R$ 6,00</div>
+        <div class="combo-name">Combo Dupla Cósmica</div>
+        <p class="combo-desc">Perfeito para uma tarde especial. Escolha 2 cookies recheados do nosso cardápio.</p>
+        <div class="combo-items">
+          <span>2 cookies recheados à escolha</span>
+          <span>Embalagem especial inclusa</span>
+        </div>
+        <div class="combo-footer">
+          <div>
+            <span class="combo-price-old">De R$ 36,00</span>
+            <div class="combo-price">R$ 30,00</div>
+          </div>
+          <button class="combo-btn" onclick="cosmoCart.add('combo-dupla')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Adicionar
+          </button>
+        </div>
+      </div>
+
+      <div class="combo-card destaque">
+        <div class="combo-save">⭐ Mais pedido — Economize R$ 12,00</div>
+        <div class="combo-name">Combo Galáxia</div>
+        <p class="combo-desc">Ideal para dividir ou para quem quer variedade. 4 cookies recheados à sua escolha.</p>
+        <div class="combo-items">
+          <span>4 cookies recheados à escolha</span>
+          <span>Caixinha presenteável inclusa</span>
+          <span>Laço decorativo</span>
+        </div>
+        <div class="combo-footer">
+          <div>
+            <span class="combo-price-old">De R$ 68,00</span>
+            <div class="combo-price">R$ 56,00</div>
+          </div>
+          <button class="combo-btn" onclick="cosmoCart.add('combo-galaxia')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Adicionar
+          </button>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-save">Economize R$ 22,00</div>
+        <div class="combo-name">Combo Universo</div>
+        <p class="combo-desc">O presente perfeito! 6 cookies recheados mais os mini Cookitos para completar.</p>
+        <div class="combo-items">
+          <span>6 cookies recheados à escolha</span>
+          <span>Cookitos (15 unidades)</span>
+          <span>Caixa presenteável + laço</span>
+        </div>
+        <div class="combo-footer">
+          <div>
+            <span class="combo-price-old">De R$ 110,00</span>
+            <div class="combo-price">R$ 88,00</div>
+          </div>
+          <button class="combo-btn" onclick="cosmoCart.add('combo-universo')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            Adicionar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label">cardápio</div>
+      <h2>Nossos sabores</h2>
+      <p>Cada cookie é uma criação única — massa macia, recheio generoso e aquela casquinha levemente crocante que faz toda diferença.</p>
+    </div>
+    <div class="menu-layout">
+      <aside class="menu-sidebar">
+        <div class="logo-wrap"><img src="./img/logo.png" alt="CosmoCook" width="64" height="64"/></div>
+        <h3>Peça o seu cookie</h3>
+        <p>Encomendas pelo WhatsApp ou Instagram. Fazemos caixinhas presenteáveis para qualquer ocasião!</p>
+        <a class="insta-btn" href="https://www.instagram.com/cosmocook_/" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Ver no Instagram
+        </a>
+        <div class="menu-tags">
+          <span>🍪 recheados</span>
+          <span>🎁 presenteáveis</span>
+          <span>✨ artesanal</span>
+          <span>🚀 fora da órbita</span>
+        </div>
+      </aside>
+      <div class="menu-list">
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/Kinder.jpg" alt="Cookie Órbita de Kinder recheado com Kinder Bueno" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Órbita de Kinder</h3><div class="card-price">R$ 18,00</div></div>
+            <p class="card-desc">Massa tradicional com recheio de Kinder Bueno — lácteo, cremoso e irresistível. O favorito de quem ama chocolate suave.</p>
+            <div class="card-badges"><span class="badge hot">🔥 mais pedido</span><span class="badge">kinder bueno</span><span class="badge">recheado</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('kinder')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/nutella.jpg" alt="Cookie Galáxia de Nutella partido ao meio com recheio escorrendo" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Galáxia de Nutella</h3><div class="card-price">R$ 16,00</div></div>
+            <p class="card-desc">Massa tradicional com recheio de Nutella generosa que escorre ao partir. Para quem ama avelã com chocolate do jeito certo.</p>
+            <div class="card-badges"><span class="badge hot">⭐ favorito</span><span class="badge">nutella</span><span class="badge">avelã</span><span class="badge">recheado</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('nutella')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/Eclipse.jpeg" alt="Cookie Eclipse de chocolate com recheio de chocolate amargo" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Eclipse de chocolate</h3><div class="card-price">R$ 16,00</div></div>
+            <p class="card-desc">Massa de chocolate com recheio de chocolate amargo. Intenso, profundo e perfeito para os verdadeiros amantes de cacau.</p>
+            <div class="card-badges"><span class="badge">chocolate amargo</span><span class="badge">cacau</span><span class="badge">intenso</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('chocolate')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/explosao.jpeg" alt="Cookie Explosão de velvet com recheio de chocolate branco" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Explosão de velvet</h3><div class="card-price">R$ 16,00</div></div>
+            <p class="card-desc">Massa de red velvet com recheio de chocolate branco cremoso. O contraste perfeito entre o cacau da massa e a suavidade do recheio.</p>
+            <div class="card-badges"><span class="badge hot">🍷 especial</span><span class="badge">red velvet</span><span class="badge">chocolate branco</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('velvet')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/tradicional.jpeg" alt="Cookie Tradicional com gotas de chocolate ao leite" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Tradicional</h3><div class="card-price">R$ 10,00</div></div>
+            <p class="card-desc">Massa tradicional com gotas de chocolate ao leite. O clássico que nunca decepciona — simples, macio e delicioso.</p>
+            <div class="card-badges"><span class="badge">clássico</span><span class="badge">chocolate ao leite</span><span class="badge">amanteigado</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('tradicional')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="card-img"><img src="./img/mini-cookies.jpg" alt="Cookitos — mini cookies artesanais com gotas de chocolate" width="480" height="480" loading="lazy"/></div>
+          <div class="card-body">
+            <div class="card-top"><h3>Cookitos</h3><div class="card-price">R$ 12,00</div></div>
+            <p class="card-desc">Mini cookies de massa tradicional com gotas de chocolate ao leite. Perfeitos para petiscar, presentear ou compartilhar — vêm 15 unidades por embalagem.</p>
+            <div class="card-badges"><span class="badge hot">🍪 15 unidades</span><span class="badge">mini</span><span class="badge">chocolate ao leite</span><span class="badge">presenteável</span></div>
+            <button class="add-to-cart" onclick="cosmoCart.add('cookitos')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label">galeria</div>
+      <h2>Do forno para o feed</h2>
+      <p>Cada foto é um convite. Veja de perto a textura, o recheio e aquele momento irresistível antes da primeira mordida.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall"><img src="./img/658943326_18075410306267138_65538037746848575_n.jpg" alt="Cookie recheado partido com recheio escorrendo" width="480" height="960" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/cookie-coco.jpg" alt="Cookie de coco artesanal" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/nutella.jpg" alt="Cookie de Nutella com recheio escorrendo" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/coco-doce-leite.jpg" alt="Cookie de coco com doce de leite" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/duplo-chocolate.jpg" alt="Cookie duplo chocolate partido ao meio" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/red-velvet.jpg" alt="Cookie Red Velvet com cream cheese" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item tall"><img src="./img/mini-cookies.jpg" alt="Mini cookies artesanais espalhados" width="480" height="960" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/Kinder.jpg" alt="Cookie de Kinder com recheio cremoso" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/660790860_18075410543267138_2956539552670505085_n.jpg" alt="Cookies CosmoCook em destaque" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/cookie 5.jpg" alt="Cookie artesanal CosmoCook partido ao meio" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/imgp2.jpeg" alt="Cookie artesanal CosmoCook partido ao meio" width="480" height="480" loading="lazy"/></div>
+      <div class="gallery-item"><img src="./img/imgp.jpeg" alt="Cookie artesanal CosmoCook partido ao meio" width="480" height="480" loading="lazy"/></div>
+
+      <div class="gallery-item"><img src="./img/cookie 4.jpg" alt="Cookie artesanal CosmoCook partido ao meio" width="480" height="480" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-img">
+      <img src="./img/Historia.jpeg" alt="Cookie artesanal CosmoCook partido ao meio" width="640" height="800" loading="lazy"/>
+    </div>
+    <div class="sobre-copy">
+      <div class="sec-label">sobre a CosmoCook</div>
+      <h2>Feito com alma, sabor e um toque cósmico</h2>
+      <p>A CosmoCook nasceu do amor por cookies artesanais de verdade — aqueles que têm textura, recheio generoso e sabor que fica na memória. Aqui, cada lote é preparado com ingredientes selecionados e muito cuidado.</p>
+      <p>Nossa mascote é a capivara astronauta: curiosa, tranquila e sempre pronta para explorar novos sabores. Assim como ela, a gente acredita que a próxima mordida pode ser a melhor da sua vida.</p>
+      <p>Além dos clássicos, sempre temos edições especiais e sabores sazonais. Acompanhe o Instagram para não perder nenhum lançamento!</p>
+      <div class="sobre-pills">
+        <span class="pill">🍪 100% artesanal</span>
+        <span class="pill">✋ feito à mão</span>
+        <span class="pill">🎁 caixas presenteáveis</span>
+        <span class="pill">🚀 edições especiais</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-label">pedidos & contato</div>
+      <h2>Bora fazer seu pedido?</h2>
+      <p>Encomende pelo WhatsApp ou nos encontre no Instagram. Respondemos rapidinho!</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:var(--sp6);max-width:480px;">
+      <div style="border:1px solid var(--navy-border);border-radius:var(--r-xl);padding:var(--sp8);background:var(--navy-card);">
+        <div style="font-size:2.5rem;margin-bottom:var(--sp4);">📸</div>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--sp3);">Instagram</h3>
+        <p style="color:var(--text-muted);margin-bottom:var(--sp5);">Acompanhe os lançamentos, edições especiais e bastidores pelo @cosmocook_</p>
+        <a class="btn-ghost" href="https://www.instagram.com/cosmocook_/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;">@cosmocook_</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="./img/logo.png" alt="CosmoCook" width="36" height="36" loading="lazy"/>
+      <span>CosmoCook</span>
+    </div>
+    <p style="font-size:var(--text-sm);">Cookies artesanais com alma cósmica 🪐</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/cosmocook_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#sobre">Sobre</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- CARRINHO FAB -->
+<button class="cart-fab" onclick="cosmoCart.open()" aria-label="Abrir carrinho">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+  <span class="cart-count" id="cart-count">0</span>
+</button>
+
+<!-- OVERLAY -->
+<div class="cart-overlay" id="cart-overlay" onclick="cosmoCart.close()"></div>
+
+<!-- PAINEL DO CARRINHO -->
+<div class="cart-panel" id="cart-panel" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+  <div class="cart-panel-head">
+    <h2>🍪 Seu pedido</h2>
+    <button class="cart-close" onclick="cosmoCart.close()" aria-label="Fechar carrinho">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total do pedido</span>
+      <span class="cart-total-val" id="cart-total">R$ 0,00</span>
+    </div>
+    <button class="cart-send-btn" id="cart-send" onclick="cosmoCart.send()" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Finalizar pedido pelo WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- MODAL CADASTRO -->
+<div class="checkout-modal-overlay" id="checkout-overlay">
+  <div class="checkout-modal" role="dialog" aria-modal="true" aria-label="Dados para entrega">
+    <div class="checkout-modal-head">
+      <h2>Dados para entrega</h2>
+      <button class="cart-close" onclick="cosmoCart.closeCheckout()" aria-label="Fechar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="checkout-modal-body">
+      <div class="form-group">
+        <label for="co-nome">Nome completo</label>
+        <input type="text" id="co-nome" placeholder="Ex: Maria da Silva" autocomplete="name"/>
+        <div class="error-msg" id="err-nome"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="co-tel">Telefone</label>
+          <input type="tel" id="co-tel" placeholder="(46) 99999-9999" autocomplete="tel"/>
+          <div class="error-msg" id="err-tel"></div>
+        </div>
+        <div class="form-group">
+          <label for="co-bairro">Bairro</label>
+          <input type="text" id="co-bairro" placeholder="Ex: Centro" autocomplete="address-level3"/>
+          <div class="error-msg" id="err-bairro"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="co-end">Endereço (rua, número)</label>
+        <input type="text" id="co-end" placeholder="Ex: Rua das Flores, 123" autocomplete="street-address"/>
+        <div class="error-msg" id="err-end"></div>
+      </div>
+      <div class="form-group">
+        <label for="co-comp">Complemento <span style="color:var(--text-faint);font-weight:400;">(opcional)</span></label>
+        <input type="text" id="co-comp" placeholder="Ex: Apto 2, casa dos fundos"/>
+      </div>
+    </div>
+    <div class="checkout-modal-foot">
+      <button class="checkout-confirm-btn" onclick="cosmoCart.confirmOrder()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Confirmar pedido pelo WhatsApp
+      </button>
+      <button class="checkout-cancel-btn" onclick="cosmoCart.closeCheckout()">Voltar ao carrinho</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const PHONE = '5546999148012';
+  const products = {
+    kinder:      { name: 'Órbita de Kinder',    price: 18 },
+    nutella:     { name: 'Galáxia de Nutella',   price: 16 },
+    chocolate:   { name: 'Eclipse de chocolate', price: 16 },
+    velvet:      { name: 'Explosão de velvet',   price: 16 },
+    tradicional: { name: 'Tradicional',          price: 10 },
+    cookitos:       { name: 'Cookitos (15 unid.)',       price: 12 },
+    'combo-dupla':  { name: 'Combo Dupla Cósmica (2x)', price: 30 },
+    'combo-galaxia':{ name: 'Combo Galáxia (4x)',       price: 56 },
+    'combo-universo':{ name: 'Combo Universo (6x + Cookitos)', price: 88 },
+  };
+  const cart = {};
+
+  function totalItems(){ return Object.values(cart).reduce(function(s,q){ return s+q; }, 0); }
+  function totalPrice(){ return Object.entries(cart).reduce(function(s,e){ return s + products[e[0]].price * e[1]; }, 0); }
+
+  function fmt(n){ return 'R$ ' + n.toFixed(2).replace('.',','); }
+
+  function updateBadge(){
+    var n = totalItems();
+    var el = document.getElementById('cart-count');
+    el.textContent = n;
+    el.classList.toggle('visible', n > 0);
+  }
+
+  function renderItems(){
+    var container = document.getElementById('cart-items');
+    var entries = Object.entries(cart).filter(function(e){ return e[1] > 0; });
+    if(!entries.length){
+      container.innerHTML = '<div class="cart-empty"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><p>Carrinho vazio.<br/>Escolha seus cookies!</p></div>';
+      return;
+    }
+    container.innerHTML = entries.map(function(e){
+      var id = e[0], qty = e[1], p = products[id];
+      var sub = fmt(p.price * qty);
+      return '<div class="cart-item">'
+        + '<div class="cart-item-info">'
+        + '<div class="cart-item-name">' + p.name + '</div>'
+        + '<div class="cart-item-price">' + fmt(p.price) + ' × ' + qty + ' = ' + sub + '</div>'
+        + '</div>'
+        + '<div class="qty-ctrl">'
+        + '<button class="qty-btn" onclick="cosmoCart.update(\'' + id + '\',-1)" aria-label="Diminuir">−</button>'
+        + '<span class="qty-val">' + qty + '</span>'
+        + '<button class="qty-btn" onclick="cosmoCart.update(\'' + id + '\',1)" aria-label="Aumentar">+</button>'
+        + '</div>'
+        + '<button class="cart-item-remove" onclick="cosmoCart.remove(\'' + id + '\')" aria-label="Remover">'
+        + '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>'
+        + '</button>'
+        + '</div>';
+    }).join('');
+  }
+
+  function renderTotal(){
+    var t = totalPrice();
+    document.getElementById('cart-total').textContent = fmt(t);
+    document.getElementById('cart-send').disabled = t === 0;
+  }
+
+  function render(){ renderItems(); renderTotal(); updateBadge(); }
+
+  function openCart(){
+    document.getElementById('cart-panel').classList.add('open');
+    document.getElementById('cart-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart(){
+    document.getElementById('cart-panel').classList.remove('open');
+    document.getElementById('cart-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function addToCart(id){
+    cart[id] = (cart[id] || 0) + 1;
+    render();
+    openCart();
+  }
+
+  function updateQty(id, delta){
+    cart[id] = Math.max(0, (cart[id] || 0) + delta);
+    if(cart[id] === 0) delete cart[id];
+    render();
+  }
+
+  function removeItem(id){ delete cart[id]; render(); }
+
+  function sendOrder(){
+    if(!Object.keys(cart).length) return;
+    document.getElementById('checkout-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout(){
+    document.getElementById('checkout-overlay').classList.remove('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function val(id){ return document.getElementById(id).value.trim(); }
+  function setErr(id, msg){
+    var el = document.getElementById(id);
+    el.textContent = msg;
+    document.getElementById(id.replace('err-','co-')).classList.toggle('field-error', !!msg);
+  }
+
+  function confirmOrder(){
+    var nome   = val('co-nome');
+    var tel    = val('co-tel');
+    var end    = val('co-end');
+    var bairro = val('co-bairro');
+    var comp   = val('co-comp');
+
+    setErr('err-nome',   nome   ? '' : 'Por favor informe seu nome.');
+    setErr('err-tel',    tel    ? '' : 'Por favor informe seu telefone.');
+    setErr('err-end',    end    ? '' : 'Por favor informe o endereço.');
+    setErr('err-bairro', bairro ? '' : 'Por favor informe o bairro.');
+
+    if(!nome || !tel || !end || !bairro) return;
+
+    var entries = Object.entries(cart).filter(function(e){ return e[1] > 0; });
+    var lines = entries.map(function(e){
+      var p = products[e[0]];
+      return '• ' + e[1] + 'x ' + p.name + ' — ' + fmt(p.price * e[1]);
+    });
+    var total = fmt(totalPrice());
+    var endereco = end + (comp ? ', ' + comp : '') + ' — ' + bairro;
+
+    var msg = 'Olá! Gostaria de fazer um pedido na CosmoCook 🍪'
+      + '\n\n*Dados do cliente:*'
+      + '\nNome: ' + nome
+      + '\nTelefone: ' + tel
+      + '\nEndereço: ' + endereco
+      + '\n\n*Meu pedido:*\n' + lines.join('\n')
+      + '\n\n*Total: ' + total + '*'
+      + '\n\nAguardo confirmação de disponibilidade e prazo! 🍪';
+
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+  }
+
+  window.cosmoCart = {
+    add: addToCart, update: updateQty, remove: removeItem,
+    open: openCart, close: closeCart, send: sendOrder,
+    closeCheckout: closeCheckout, confirmOrder: confirmOrder
+  };
+
+  document.addEventListener('DOMContentLoaded', render);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeCheckout();
+      closeCart();
+      var mn = document.getElementById('mobile-nav');
+      if(mn) { mn.classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); document.body.style.overflow=''; }
+    }
+  });
+})();
+
+function toggleMenu(){
+  var nav = document.getElementById('mobile-nav');
+  var btn = document.getElementById('hamburger');
+  var open = nav.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+</script>
+</body>
+</html>
